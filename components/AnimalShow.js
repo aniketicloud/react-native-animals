@@ -1,22 +1,30 @@
-import { useState } from "react";
-import { Button, Text, View } from "react-native";
+import { Image, StyleSheet, Text, View } from "react-native";
 
-const getRandomAnimal = () => {
-  const animals = ["bird", "cat", "cow", "dog", "gator", "horse"];
-  return animals[Math.floor(Math.random() * animals.length)];
-};
+const svgMap = {};
 
-export const AnimalShow = () => {
-  const [animals, setAnimals] = useState([]);
-
-  const handleTouch = () => {
-    setAnimals([...animals, getRandomAnimal()]);
-  };
-
+export const AnimalShow = ({ type }) => {
   return (
-    <View>
-      <Button title="Add Animal" onPress={handleTouch}></Button>
-      <Text>Animals: {animals}</Text>
+    <View style={styles.container}>
+      {type && (
+        <Text>Hello</Text>
+        // <Image
+        //   style={styles.image}
+        //   alt="animal"
+        //   source={require("../assets/animals/cow.svg")}
+        // />
+      )}
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: "red",
+    color: "#fff",
+  },
+  image: {
+    width: 50,
+    height: 50,
+    margin: 10,
+  },
+});
